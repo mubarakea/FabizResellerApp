@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        package="com.officialakbarali.fabiz">
+
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <application
+            android:usesCleartextTraffic="true" tools:targetApi="28"
+            android:name=".network.syncInfo.NotificationFrame"
+            android:allowBackup="true"
+            android:icon="@mipmap/app_logo"
+            android:label="@string/app_name"
+            android:roundIcon="@mipmap/app_logo_circle"
+            android:supportsRtl="true"
+            android:theme="@style/AppTheme">
+        <activity android:name=".printer.DeviceList" />
+        <activity
+                android:name=".requestStock.RequestItem"
+                android:screenOrientation="fullSensor" />
+
+        <activity
+                android:name=".Settings"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".blockPages.UpdateData"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".blockPages.ForcePull"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".blockPages.AppVersion"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".MainHome"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".LogIn"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.route.RouteModify"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".requestStock.RequestStock"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".data.barcode.FabizBarcode"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.route.ManageRoute"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".network.syncInfo.SyncInformation"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.payment.PaymentReview"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.payment.AddPayment"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.sale.SalesReturnReview"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.sale.SalesReviewDetail"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.sale.SalesReview"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".network.syncInfo.OLD.SyncFromAppToServer"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.sale.Sales"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.Home"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".item.Item"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.AddCustomer"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".customer.Customer"
+                android:screenOrientation="fullSensor" />
+        <activity
+                android:name=".MainActivity"
+                android:screenOrientation="fullSensor"
+                android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".network.syncInfo.services.NetworkMonitor"
+                android:exported="false">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service
+                android:name=".network.syncInfo.services.SyncService"
+                android:enabled="true" />
+        <service
+                android:name=".network.syncInfo.services.ForcePullService"
+                android:enabled="true" />
+    </application>
+
+</manifest>
